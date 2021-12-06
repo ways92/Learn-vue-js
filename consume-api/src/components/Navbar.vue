@@ -15,6 +15,9 @@
                   <router-link  class="nav-link" to="/posts"> Posts</router-link>
                 </li>             
                 <li class="nav-item">
+                  <router-link  class="nav-link" to="/pokemon"> Pokemon</router-link>
+                </li>             
+                <li class="nav-item">
                   <router-link  class="nav-link" to="/about"> About</router-link>
                 </li>
             </ul>
