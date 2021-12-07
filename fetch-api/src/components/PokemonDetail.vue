@@ -9,10 +9,10 @@ export default {
   props: {
     pokemon: {
       type: Object,
-      default: () => ({}),
-    },
-  },
-};
+      default: () => ({})
+    }
+  }
+}
 </script>
 
 <style scoped>

@@ -1,4 +1,4 @@
-# consume-api
+# fetch-api
 
 ## Project setup
 ```
