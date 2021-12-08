@@ -18,9 +18,13 @@ import { useStore } from 'vuex'
 // import { useRouter } from 'vue-router'
  export default {
     //  props: {},
+    // name: 'pokemon',
      setup() {
         const store = useStore()
         // const router = useRouter()
+        // console.warn("route",router.params.name)
+
+
         const getDataPokemon = computed(() =>{
             return store.getters.getDetailPokemon
         })
