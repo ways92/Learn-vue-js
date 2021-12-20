@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-info">
       <div class="container">
-        <router-link class="navbar-brand" to="/">MOVIE App </router-link>
+        <router-link class="navbar-brand " to="/">MOVIE App </router-link>
         <button
           class="navbar-toggler"
           type="button"

@@ -1,47 +1,61 @@
 <template>
-  <div class="detail container">
-    <h1>Detail</h1>
-    <div class="mx-5">
-      <div class="card" style="width: 25rem;">
-        <img src="" class="card-img-top" alt="..." />
-        <div class="card-body">
-          <h5 class="card-title">Title</h5>
-          <p class="card-text">
-            Overview : Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Rating</li>
-          <li class="list-group-item">Popularity</li>
-          <li class="list-group-item">Release Date</li>
-        </ul>
-      </div>
+  <div class="container  mt-5">
+    <div class="mb-5 mx-auto d-flex justify-content-center " >
+      <img class="img-fluid" style="width: 800px;" :src="`${posterPath}${movie.backdrop_path}`" alt="image">
     </div>
+
+    <div class="detail row d-flex justify-content-evenly">
+
+      <div class=" col-12 col-md d-flex justify-content-center justify-content-sm-center justify-content-lg-center">
+        <div class="" style="width: 23rem;">
+          <img :src="`${posterPath}${movie.poster_path}`" class="card-img-top" alt="image" />
+        </div>
+      </div>
+      
+      <div class=" col-12 col-md mt-2 ">
+        <div class=" ps-lg-5 card shadow-lg" style="width: 100%;">
+          
+          <div class="card-body">
+            <h4 class="card-title fw-bolder">{{ movie.title }}</h4>
+            <p class="card-text">
+              Overview : {{ movie.overview }}
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Rating : {{ movie.vote_average * 10 }} %</li>
+            <li class="list-group-item">{{ movie.vote_count }} Voting</li>
+            <li class="list-group-item">Release Date : {{ movie.release_date }}</li>
+            <li class="list-group-item">Duration : {{ movie.runtime }} Minutes</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </template>
 
 <script>
-import axios from 'axios'
 export default {
-  mounted() {
-    this.fetchMovie(this.$route.params.id)
+  mounted(){
+    const ID = this.$route.params.id
+    this.$store.dispatch('getMovie', ID)
   },
-  methods: {
-    async fetchMovie(movieId) {
-      const apiUrl = 'https://api.themoviedb.org/3'
-      const apiKey = '9350682e7550ba5410fc9498023d14b3'
-      const response = await axios.get(
-        `${apiUrl}/movie/${movieId}?append_to_response=credits,videos,images${apiKey}`,
-      )
-      console.log(response.data)
-    },
+  computed:{
+
+    posterPath(){
+      return this.$store.state.posterPath
+    },   
+    movie() {
+      return this.$store.state.movie
+    }
   },
+
 }
 </script>
 
 <style>
 .detail {
-  margin-bottom: 800px;
+  margin-bottom: 100px;
 }
 </style>

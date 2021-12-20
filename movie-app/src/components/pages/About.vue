@@ -1,6 +1,6 @@
 <template>
   <div class="about container">
-    <h1> Movie App Created by Vue js</h1>
+    <h1 class="text-center mt-5"> Movie App Created by Ways</h1>
   </div>
 </template>
 

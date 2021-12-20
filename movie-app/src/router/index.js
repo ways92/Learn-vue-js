@@ -17,6 +17,7 @@ const routes = [
   {
     path: "/movies/:id",
     name: "MoviesDetail",
+    params: true,
     component: MoviesDetail,
   },
   {
