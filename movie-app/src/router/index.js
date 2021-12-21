@@ -1,9 +1,9 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
 
-import Home from "../components/pages/Home.vue"
-import About from "../components/pages/About.vue"
-import MoviesDetail from "../components/pages/MoviesDetail.vue"
+import Home from "../view/Home.vue"
+import About from "../view/About.vue"
+import MoviesDetail from "../view/MoviesDetail.vue"
 
 
 Vue.use( VueRouter )
@@ -28,9 +28,9 @@ const routes = [
 ]
 
 const router = new VueRouter( {
-  routes,
   mode: "history",
   base: process.env.BASE_URL,
+  routes,
 } )
 
 export default router
