@@ -39,19 +39,7 @@
 <script>
 export default {
   name: 'Poster',
-  mounted() {
-    const ID = this.$route.params.id
-    this.$store.dispatch('getMovie', ID)
-  },
-  computed: {
-    posterPath() {
-      return this.$store.state.posterPath
-    },
-
-    movie() {
-      return this.$store.state.movie
-    },
-  },
+  props: ['movie', 'posterPath'],
 }
 </script>
 
