@@ -1,8 +1,8 @@
 <template>
   <div class="container mt-5">
-    <Backdrop />
+    <Backdrop v-bind:movie="movie" v-bind:posterPath="posterPath" />
 
-    <Poster />
+    <Poster v-bind:movie="movie" v-bind:posterPath="posterPath" />
   </div>
 </template>
 
@@ -13,6 +13,18 @@ export default {
   components: {
     Backdrop,
     Poster,
+  },
+  mounted() {
+    const ID = this.$route.params.id
+    this.$store.dispatch('getMovie', ID)
+  },
+  computed: {
+    posterPath() {
+      return this.$store.state.posterPath
+    },
+    movie() {
+      return this.$store.state.movie
+    },
   },
 }
 </script>
